@@ -17,7 +17,7 @@ function Search(local_sol, _f, _ℓ, _γ, _η, _ρ)
         vec = Generate_ℓ_Vector(local_sol[1], _ℓ, k, _ρ)
 
         while _f(local_sol[1] + vec) >= local_sol[2] + _η && _f(local_sol[1] - vec) >= local_sol[2] + _η && _ℓ > _η
-            _ℓ *= _γ
+            #_ℓ *= _γ
             vec = Generate_ℓ_Vector(local_sol[1], _ℓ, k, _ρ)
 
 
@@ -57,6 +57,8 @@ function Cloud_Search(_f, _x, _α, _β, _η, _ϵ, _κ, _ℓ, _γ, _ρ, width, ma
 
         it +=1
     end
+
+    #sol = Unconstrained_Newton(_f, _x, _α, _β, _κ, _ϵ, maxIt)
 
     return sol
 end
