@@ -1,3 +1,5 @@
+using Plots
+
 function Contour(rangeX, rangeY, step, f, _title, xPlot, yPlot, solPlotX, solPlotY, finalSolX, finalSolY)
     plotf(x,y) = f([x, y])
     _x = -10.0:0.03:10.0
