@@ -3,15 +3,15 @@ include("test_objectives.jl")
 include("cloud_search.jl")
 
 
-x0 = [-5.0,5.0]
+x0 = [-10.0,10.0]
 ϵ = 1e-8
 η = 1e-3
 α = 0.5
 β = 0.8
-κ = 0.1
-ℓ = 100
+κ = 1
+ℓ = 1
 γ = 0.5
-ρ = 50
+ρ = 5
 searchWidth = 10
 
 
@@ -36,6 +36,6 @@ f(x) = Ackley(x)
 #f(x) = Schaffer_N2(x)
 #f(x) = Styblinski_Tang(x,2)
 
-@time minimum = Horizontal_Search(f, x0, α, β, η, ϵ, κ, ℓ, γ, ρ, searchWidth, maxIterations)
+@time minimum = Grad_Cloud_Search(f, x0, α, β, η, ϵ, κ, ℓ, γ, ρ, searchWidth, maxIterations)
 
-Contour([-5, 5], [-5, 5], 0.05, f, "Global Minimization With Cloud Search", xPlot, yPlot, solPlotX, solPlotY, finalSolX, finalSolY)
+Contour([-5, 5], [-5, 5], 0.05, f, "Global Minimization With Gradient Cloud Search", xPlot, yPlot, solPlotX, solPlotY, finalSolX, finalSolY)
